@@ -1,0 +1,30 @@
+# sudo nano /etc/logrotate.d/mylogs
+# Konfigurasi Logrotate untuk rotasi file log
+/var/log/syslog {
+    rotate 7
+    daily
+    compress
+    missingok
+    notifempty
+}
+
+/var/log/daemon.log {
+    rotate 7
+    daily
+    compress
+    missingok
+    notifempty
+}
+
+# Konfigurasi Logrotate untuk rotasi jurnal sistem
+/var/log/journal/*/*.journal {
+    rotate 7
+    weekly
+    compress
+    missingok
+    notifempty
+    create 2755 root systemd-journal
+    postrotate
+        /bin/systemctl kill -s SIGUSR2 systemd-journald >/dev/null 2>&1 || true
+    endscript
+}
