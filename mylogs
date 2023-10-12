@@ -15,6 +15,34 @@
     missingok
     notifempty
 }
+/cache/trustpositif.log {
+    rotate 7
+    daily
+    missingok
+    notifempty
+    compress
+    delaycompress
+    create 644 root root
+}
+
+/cache/resolver.log {
+    rotate 7
+    daily
+    missingok
+    notifempty
+    compress
+    delaycompress
+    create 644 unbound unbound
+}
+/cache/bumper.log {
+    rotate 7
+    daily
+    missingok
+    notifempty
+    compress
+    delaycompress
+    create 644 bind bind
+}
 
 # Konfigurasi Logrotate untuk rotasi jurnal sistem
 /var/log/journal/*/*.journal {
