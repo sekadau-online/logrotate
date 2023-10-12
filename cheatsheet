@@ -3,3 +3,5 @@ df -h
 timedatectl set-timezone Asia/Jakarta
 cd / ; du -sm *
 du -a /var | sort -n -r | head -n 10
+
+chmod 755 /cache
